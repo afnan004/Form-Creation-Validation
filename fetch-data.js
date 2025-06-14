@@ -1,3 +1,4 @@
+// ✅ Step 1: Declare the async function first
 async function fetchUserData() {
     const apiUrl = 'https://jsonplaceholder.typicode.com/users';
     const dataContainer = document.getElementById('api-data');
@@ -6,7 +7,7 @@ async function fetchUserData() {
         const response = await fetch(apiUrl);
         const users = await response.json();
 
-        dataContainer.innerHTML = ''; // Clear loading message
+        dataContainer.innerHTML = '';
 
         const userList = document.createElement('ul');
 
@@ -22,3 +23,6 @@ async function fetchUserData() {
         dataContainer.textContent = 'Failed to load user data.';
     }
 }
+
+// ✅ Step 2: Call it *outside* using DOMContentLoaded
+document.addEventListener('DOMContentLoaded', fetchUserData);
